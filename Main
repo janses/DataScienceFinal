@@ -5,3 +5,8 @@ import math
 #FILE PATH: ('/home/USERNAME/FOLDERNAME/NAME_OF_FILE')
 sldf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Sea Level Chart.xlsx')
 icdf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Ice Cap Levels.xlsx')
+print(icdf.head(5))
+
+def data_plot(icdf, sldf):
+  
+data_plot(icdf, sldf)
