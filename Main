@@ -9,9 +9,18 @@ cvdf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Converted DataSheet.xlsx'
 print(icdf.head(5))
 
 def data_plot(icdf, sldf, cvdf):
-    scatterPlot = plt.scatter(icdf.iloc[:,0], icdf['ICE EXTENT'], color='red')
+    f1 = plt.figure(1)
+    iceCapScat = plt.scatter(icdf.iloc[:,0], icdf['ICE EXTENT'], color='red')
     plt.xlabel('Year')
     plt.ylabel('Ice Extent')
+    f1.show()
+    
+    f2 = plt.figure(2)
+    seaLevelScat = plt.scatter(sldf.iloc[:,0], sldf['CSIRO - Adjusted sea level (inches)'], color='blue')
+    plt.xlabel('Year')
+    plt.ylabel('CSIRO - Adjusted sea level (inches)')
+    f2.show()
+    
     
     
 data_plot(icdf, sldf, cvdf)
