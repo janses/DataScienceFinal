@@ -3,5 +3,5 @@ import pandas as pd
 import math
 
 #FILE PATH: ('/home/USERNAME/FOLDERNAME/NAME_OF_FILE')
-sldf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Sea Level Chart.xlxs')
-icdf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Ice Cap Levels.xlxs')
+sldf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Sea Level Chart.xlsx')
+icdf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Ice Cap Levels.xlsx')
