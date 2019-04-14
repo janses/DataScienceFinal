@@ -5,8 +5,13 @@ import math
 #FILE PATH: ('/home/USERNAME/FOLDERNAME/NAME_OF_FILE')
 sldf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Sea Level Chart.xlsx')
 icdf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Ice Cap Levels.xlsx')
+cvdf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Converted DataSheet.xlsx')
 print(icdf.head(5))
 
-def data_plot(icdf, sldf):
-  
-data_plot(icdf, sldf)
+def data_plot(icdf, sldf, cvdf):
+    scatterPlot = plt.scatter(icdf.iloc[:,0], icdf['ICE EXTENT'], color='red')
+    plt.xlabel('Year')
+    plt.ylabel('Ice Extent')
+    
+    
+data_plot(icdf, sldf, cvdf)
