@@ -2,6 +2,6 @@ import numpy as np
 import pandas as pd
 import math
 
-sldf = pd.read_excel('/DataScienceFinal-master/Sea Level Chart.xlxs')
-icdf = pd.read_excel('/DataScienceFinal-master/Ice Cap Levels.xlxs')
+sldf = pd.read_excel('~/DataScienceFinal-master/Sea Level Chart.xlxs')
+icdf = pd.read_excel('~/DataScienceFinal-master/Ice Cap Levels.xlxs')
 
