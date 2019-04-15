@@ -1,4 +1,7 @@
+%matplotlib inline
+import matplotlib.pyplot as plt
 import numpy as np
+from numpy import *
 import pandas as pd
 import math
 
@@ -8,7 +11,13 @@ icdf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Ice Cap Levels.xlsx')
 cvdf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Converted DataSheet.xlsx')
 print(icdf.head(5))
 
+ 
+
 def data_plot(icdf, sldf, cvdf):
+    #replace all NaN values with 0
+    cvdf[isnan(cvdf)] = 0
+
+
     f1 = plt.figure(1)
     iceCapScat = plt.scatter(icdf.iloc[:,0], icdf['ICE EXTENT'], color='red')
     plt.xlabel('Year')
