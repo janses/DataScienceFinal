@@ -32,7 +32,7 @@ def data_plot(icdf, sldf, cvdf):
     
     f3 = plt.figure(3)
     convertScat = plt.scatter(cvdf.iloc[:,0], cvdf['Monthly Anomaly'], color='purple')
-    plt.xlabel('Year')
+    plt.xlabel('Year (Each Month)')
     plt.ylabel('Monthly Anomaly')
     f3.show()
     
