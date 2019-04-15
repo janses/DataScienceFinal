@@ -30,6 +30,11 @@ def data_plot(icdf, sldf, cvdf):
     plt.ylabel('CSIRO - Adjusted sea level (inches)')
     f2.show()
     
+    f3 = plt.figure(3)
+    convertScat = plt.scatter(cvdf.iloc[:,0], cvdf['Monthly Anomaly'], color='purple')
+    plt.xlabel('Year')
+    plt.ylabel('Monthly Anomaly')
+    f3.show()
     
     
 data_plot(icdf, sldf, cvdf)
