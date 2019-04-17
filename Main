@@ -17,24 +17,32 @@ def data_plot(icdf, sldf, cvdf):
     #replace all NaN values with 0
     cvdf[isnan(cvdf)] = 0
 
-
+    #display graphs using specific dataset
     f1 = plt.figure(1)
     iceCapScat = plt.scatter(icdf.iloc[:,0], icdf['ICE EXTENT'], color='red')
+    plt.title('Ice Cap')
     plt.xlabel('Year')
     plt.ylabel('Ice Extent')
     f1.show()
     
     f2 = plt.figure(2)
     seaLevelScat = plt.scatter(sldf.iloc[:,0], sldf['CSIRO - Adjusted sea level (inches)'], color='blue')
+    plt.title('Sea Level')
     plt.xlabel('Year')
     plt.ylabel('CSIRO - Adjusted sea level (inches)')
     f2.show()
     
     f3 = plt.figure(3)
-    convertScat = plt.scatter(cvdf.iloc[:,0], cvdf['Monthly Anomaly'], color='purple')
+    convertScat = plt.bar(cvdf.iloc[:,0], cvdf['Monthly Anomaly'], color='purple')
     plt.xlabel('Year (Each Month)')
     plt.ylabel('Monthly Anomaly')
     f3.show()
     
+    f4 = plt.figure(4)
+    convertScat = plt.scatter(cvdf.iloc[:,0], cvdf['Monthly Anomaly'], color='purple')
+    plt.title('Converted Dataset')
+    plt.xlabel('Year (Each Month)')
+    plt.ylabel('Monthly Anomaly')
+    f4.show()
     
 data_plot(icdf, sldf, cvdf)
