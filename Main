@@ -5,10 +5,6 @@ from numpy import *
 import pandas as pd
 import math
 
-#resizes plot
-from matplotlib.pyplot import figure
-figure(num=None, figsize=(8, 6), dpi=80, facecolor='w', edgecolor='k')
-
 #FILE PATH: ('/home/USERNAME/FOLDERNAME/NAME_OF_FILE')
 sldf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Sea Level Chart.xlsx')
 icdf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Ice Cap Levels.xlsx')
@@ -23,6 +19,8 @@ def data_plot(icdf, sldf, cvdf):
 
     #display graphs using specific dataset
     f1 = plt.figure(1)
+    #resizes plot
+    plt.figure(figsize=(10,10))
     iceCapScat = plt.scatter(icdf.iloc[:,0], icdf['ICE EXTENT'], color='red')
     #display best fit line
     plt.plot(np.unique(icdf.iloc[:,0]), np.poly1d(np.polyfit(icdf.iloc[:,0], icdf['ICE EXTENT'], 1))(np.unique(icdf.iloc[:,0])))
@@ -32,6 +30,8 @@ def data_plot(icdf, sldf, cvdf):
     f1.show()
     
     f2 = plt.figure(2)
+    #resizes plot
+    plt.figure(figsize=(10,10))
     seaLevelScat = plt.scatter(sldf.iloc[:,0], sldf['CSIRO - Adjusted sea level (inches)'], color='yellow')
     #display best fit line
     plt.plot(np.unique(sldf.iloc[:,0]), np.poly1d(np.polyfit(sldf.iloc[:,0], sldf['CSIRO - Adjusted sea level (inches)'], 1))(np.unique(sldf.iloc[:,0])))
@@ -41,6 +41,8 @@ def data_plot(icdf, sldf, cvdf):
     f2.show()
     
     f3 = plt.figure(3)
+    #resizes plot
+    plt.figure(figsize=(10,10))
     convertScat = plt.bar(cvdf.iloc[:,0], cvdf['Monthly Anomaly'], color='purple')
     plt.title('Average Monthly Temperature Anomaly Bar Graph')
     plt.xlabel('Year (Each Month)')
@@ -48,6 +50,8 @@ def data_plot(icdf, sldf, cvdf):
     f3.show()
     
     f4 = plt.figure(4)
+    #resizes plot
+    plt.figure(figsize=(10,10))
     convertScat = plt.scatter(cvdf.iloc[:,0], cvdf['Monthly Anomaly'], color='purple')
     #display best fit line
     plt.plot(np.unique(cvdf.iloc[:,0]), np.poly1d(np.polyfit(cvdf.iloc[:,0], cvdf['Monthly Anomaly'], 1))(np.unique(cvdf.iloc[:,0])))
