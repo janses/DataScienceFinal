@@ -5,6 +5,10 @@ from numpy import *
 import pandas as pd
 import math
 
+#resizes plot
+from matplotlib.pyplot import figure
+figure(num=None, figsize=(8, 6), dpi=80, facecolor='w', edgecolor='k')
+
 #FILE PATH: ('/home/USERNAME/FOLDERNAME/NAME_OF_FILE')
 sldf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Sea Level Chart.xlsx')
 icdf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Ice Cap Levels.xlsx')
