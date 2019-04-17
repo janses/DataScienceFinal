@@ -40,6 +40,8 @@ def data_plot(icdf, sldf, cvdf):
     
     f4 = plt.figure(4)
     convertScat = plt.scatter(cvdf.iloc[:,0], cvdf['Monthly Anomaly'], color='purple')
+    #display best fit line
+    plt.plot(np.unique(cvdf.iloc[:,0]), np.poly1d(np.polyfit(cvdf.iloc[:,0], cvdf['Monthly Anomaly'], 1))(np.unique(cvdf.iloc[:,0])))
     plt.title('Converted Dataset')
     plt.xlabel('Year (Each Month)')
     plt.ylabel('Monthly Anomaly')
