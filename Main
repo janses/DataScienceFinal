@@ -38,6 +38,7 @@ def data_plot(icdf, sldf, cvdf):
     
     f3 = plt.figure(3)
     convertScat = plt.bar(cvdf.iloc[:,0], cvdf['Monthly Anomaly'], color='purple')
+    plt.title('Average Monthly Temperature Anomaly Bar Graph')
     plt.xlabel('Year (Each Month)')
     plt.ylabel('Monthly Anomaly')
     f3.show()
@@ -46,7 +47,7 @@ def data_plot(icdf, sldf, cvdf):
     convertScat = plt.scatter(cvdf.iloc[:,0], cvdf['Monthly Anomaly'], color='purple')
     #display best fit line
     plt.plot(np.unique(cvdf.iloc[:,0]), np.poly1d(np.polyfit(cvdf.iloc[:,0], cvdf['Monthly Anomaly'], 1))(np.unique(cvdf.iloc[:,0])))
-    plt.title('Converted Dataset')
+    plt.title('Average Monthly Temperature Anomaly Scatter Plot')
     plt.xlabel('Year (Each Month)')
     plt.ylabel('Monthly Anomaly')
     f4.show()
