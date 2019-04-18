@@ -63,6 +63,15 @@ def data_plot(icdf, sldf, cvdf):
     plt.ylabel('Monthly Anomaly')
     f4.show()
     
+    f5 = plt.figure(5)
+    plt.figure(figsize=(10,10))
+    iceCapScat = plt.scatter(icdf.iloc[:,0], icdf['ICE AREA'], color='green')
+    plt.plot(np.unique(icdf.iloc[:,0]), np.poly1d(np.polyfit(icdf.iloc[:,0], icdf['ICE AREA'], 1))(np.unique(icdf.iloc[:,0])))
+    plt.title('Ice Cap')
+    plt.xlabel('Year')
+    plt.ylabel('Ice Area')
+    f5.show()
+    
     #print execution time of program
     end = time.time()
     print('Execution time for program = ', end - start)
