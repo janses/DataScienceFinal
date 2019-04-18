@@ -5,18 +5,29 @@ from numpy import *
 import pandas as pd
 import math
 import time
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from sklearn.preprocessing import FunctionTransformer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
+from sklearn.pipeline import make_pipeline
+from sklearn.metrics import classification_report
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix
+from sklearn.utils.multiclass import unique_labels
 
 #FILE PATH: ('/home/USERNAME/FOLDERNAME/NAME_OF_FILE')
 sldf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Sea Level Chart.xlsx')
 icdf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Ice Cap Levels.xlsx')
 cvdf = pd.read_excel('/home/sanbornc2/DataScienceFinal/Converted DataSheet.xlsx')
 print(icdf.head(5))
-
  
+start = time.time()
+
+arr = np.ones(icdf['ICE EXTENT'].size)
+arr2 = np.zeros(icdf['ICE AREA'].size)
+design = np.concatenate((arr,arr2))
 
 def data_plot(icdf, sldf, cvdf):
-    start = time.time()
-
     #replace all NaN values with 0
     cvdf[isnan(cvdf)] = 0
 
@@ -72,8 +83,16 @@ def data_plot(icdf, sldf, cvdf):
     plt.ylabel('Ice Area')
     f5.show()
     
-    #print execution time of program
-    end = time.time()
-    print('Execution time for program = ', end - start)
+    y = designY(icdf['ICE AREA'], icdf['ICE EXTENT'])
+    X_train, X_test, y_train, y_test = train_test_split(cvdf.iloc[:,0], design, random_state=0, test_size=0.5)
+    model = make_pipeline(CountVectorizer(), MultinomialNB())
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
+  
+#print execution time of program
+end = time.time()
+print('Execution time for program = ', end - start)
     
 data_plot(icdf, sldf, cvdf)
+print("Train accuracy is %.2f %%" % (model.score(X_train, y_train)*100))
+print("Test accuracy is %.2f %%" % (model.score(X_test, y_test)*100))
